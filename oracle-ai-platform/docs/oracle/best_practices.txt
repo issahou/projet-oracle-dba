@@ -1,0 +1,6 @@
+Meilleures pratiques Oracle:
+            1. Utiliser des profils de mot de passe forts
+            2. Activer l'audit sur les opérations sensibles
+            3. Appliquer le principe du moindre privilège
+            4. Sauvegarder régulièrement
+            5. Monitorer les performances

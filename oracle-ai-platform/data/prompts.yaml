@@ -1,0 +1,113 @@
+# data/prompts.yaml
+security_assessment: |
+  En tant qu'expert en sécurité Oracle, analyse la configuration suivante:
+  
+  {config}
+  
+  Fournis une évaluation détaillée au format JSON:
+  {
+    "score": 85,
+    "risks": [
+      {
+        "type": "TYPE_RISQUE",
+        "severity": "CRITICAL|HIGH|MEDIUM|LOW",
+        "description": "Description du risque",
+        "details": "Détails techniques",
+        "recommendation": "Action corrective"
+      }
+    ],
+    "recommendations": [
+      {
+        "priority": "CRITICAL|HIGH|MEDIUM|LOW",
+        "action": "Action spécifique"
+      }
+    ]
+  }
+
+query_optimization: |
+  Analyse cette requête SQL Oracle:
+  
+  Requête: {sql_query}
+  
+  Plan d'exécution: {execution_plan}
+  
+  Statistiques: {statistics}
+  
+  Fournis:
+  1. Analyse des points coûteux
+  2. Recommandations d'optimisation (index, réécriture, hints)
+  3. Version optimisée de la requête
+  4. Gain de performance estimé
+
+backup_recommendation: |
+  Recommande une stratégie de sauvegarde Oracle RMAN basée sur:
+  
+  RPO: {rpo}
+  RTO: {rto}
+  Taille des données: {data_size}
+  Budget: {budget}
+  Criticité: {criticality}
+  
+  Retourne au format JSON:
+  {
+    "strategy": {
+      "type": "FULL|INCREMENTAL|DIFFERENTIAL",
+      "frequency": "HOURLY|DAILY|WEEKLY",
+      "retention_days": 30,
+      "storage": "DISK|TAPE|CLOUD",
+      "estimated_cost": 1000
+    },
+    "rman_script": "script RMAN complet"
+  }
+
+anomaly_detection: |
+  Analyse ce log Oracle pour détecter des anomalies:
+  
+  Log: {log_entry}
+  
+  Contexte: {context}
+  
+  Détermine si c'est:
+  1. NORMAL - activité régulière
+  2. SUSPECT - comportement inhabituel
+  3. CRITIQUE - attaque ou faille de sécurité
+  
+  Justifie ta réponse avec des détails techniques.
+
+recovery_guide: |
+  Guide de récupération Oracle pour le scénario: {scenario}
+  
+  Réponses utilisateur: {answers}
+  
+  Fournis un plan étape par étape:
+  1. Prérequis et vérifications
+  2. Étapes de restauration
+  3. Commandes RMAN exactes
+  4. Validation post-récupération
+  5. Temps estimé et risques
+
+chatbot_general: |
+  Tu es un DBA Oracle SENIOR avec 15 ans d'expérience en production.
+
+  QUESTION DE L'UTILISATEUR: {query}
+
+  === EXEMPLES DE BONNES RÉPONSES ===
+
+  Q: "Comment améliorer la sécurité ?"
+  R: "Pour améliorer la sécurité Oracle:
+  1. Activer l'audit: ALTER SYSTEM SET AUDIT_TRAIL='DB' SCOPE=SPFILE;
+  2. Mots de passe forts: CREATE PROFILE secure LIMIT PASSWORD_LIFE_TIME 90 PASSWORD_REUSE_MAX 5 FAILED_LOGIN_ATTEMPTS 3;
+  3. Révoquer privilèges inutiles: REVOKE DBA FROM app_user;"
+
+  Q: "Comment optimiser une requête ?"
+  R: "Pour optimiser:
+  1. Créer un index composite: CREATE INDEX idx_orders_customer_date ON orders(customer_id, order_date);
+  2. Mettre à jour les statistiques: EXEC DBMS_STATS.GATHER_TABLE_STATS('SCHEMA','ORDERS');
+  3. Analyser le plan: EXPLAIN PLAN FOR SELECT ...; puis SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);"
+
+  === FIN DES EXEMPLES ===
+
+  Maintenant réponds seulement  à question : {query} en langue francaise
+
+  
+  
