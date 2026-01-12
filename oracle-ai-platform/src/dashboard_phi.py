@@ -1,4 +1,4 @@
-# src/dashboard_phi.py -
+# src/dashboard_phi.py - VERSION AVEC PAGE D'ACCUEIL PROFESSIONNELLE
 import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
@@ -675,6 +675,18 @@ except ImportError as e:
 # Ajouter le répertoire parent au path
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
+# Configuration du thème professionnel
+COLORS = {
+    'primary': '#1e3a8a',      # Bleu foncé
+    'secondary': '#3b82f6',    # Bleu moderne
+    'success': '#10b981',      # Vert
+    'warning': '#f59e0b',      # Orange
+    'danger': '#ef4444',       # Rouge
+    'neutral': '#6b7280',      # Gris
+    'bg_light': '#f8fafc',     # Fond clair
+    'text_dark': '#1e293b'     # Texte foncé
+}
+
 class OracleAIDashboardPhi:
     def __init__(self):
         st.set_page_config(
@@ -682,6 +694,9 @@ class OracleAIDashboardPhi:
             page_icon="⚡",
             layout="wide"
         )
+        
+        # Appliquer le CSS professionnel
+        self._apply_professional_css()
         
         # Initialisation
         self.llm_engine = None
@@ -692,6 +707,189 @@ class OracleAIDashboardPhi:
         
         # Démarrer l'initialisation
         self._init_components()
+    
+    def _apply_professional_css(self):
+        """Applique un style CSS professionnel et épuré"""
+        st.markdown(f"""
+        <style>
+        /* Theme général professionnel */
+        .stApp {{
+            background-color: #ffffff;
+        }}
+        
+        /* En-têtes professionnels */
+        h1 {{
+            color: {COLORS['primary']};
+            font-weight: 600;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-bottom: 3px solid {COLORS['secondary']};
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }}
+        
+        h2, h3 {{
+            color: {COLORS['text_dark']};
+            font-weight: 500;
+            margin-top: 1.5rem;
+        }}
+        
+        /* Sidebar professionnel */
+        [data-testid="stSidebar"] {{
+            background-color: {COLORS['bg_light']};
+            border-right: 1px solid #e2e8f0;
+        }}
+        
+        [data-testid="stSidebar"] h1 {{
+            color: {COLORS['primary']};
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-bottom: 2px solid {COLORS['secondary']};
+            padding-bottom: 0.75rem;
+        }}
+        
+        /* Boutons élégants */
+        .stButton > button {{
+            background-color: {COLORS['primary']};
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }}
+        
+        .stButton > button:hover {{
+            background-color: {COLORS['secondary']};
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transform: translateY(-1px);
+        }}
+        
+        /* Métriques professionnelles */
+        [data-testid="stMetricValue"] {{
+            color: {COLORS['primary']};
+            font-size: 2rem;
+            font-weight: 600;
+        }}
+        
+        [data-testid="stMetricLabel"] {{
+            color: {COLORS['neutral']};
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }}
+        
+        /* Cards avec ombres subtiles */
+        .element-container {{
+            background-color: white;
+        }}
+        
+        div[data-testid="stExpander"] {{
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }}
+        
+        /* Messages professionnels */
+        .stSuccess {{
+            background-color: #ecfdf5;
+            border-left: 4px solid {COLORS['success']};
+            padding: 1rem;
+            border-radius: 4px;
+        }}
+        
+        .stWarning {{
+            background-color: #fffbeb;
+            border-left: 4px solid {COLORS['warning']};
+            padding: 1rem;
+            border-radius: 4px;
+        }}
+        
+        .stError {{
+            background-color: #fef2f2;
+            border-left: 4px solid {COLORS['danger']};
+            padding: 1rem;
+            border-radius: 4px;
+        }}
+        
+        .stInfo {{
+            background-color: #eff6ff;
+            border-left: 4px solid {COLORS['secondary']};
+            padding: 1rem;
+            border-radius: 4px;
+        }}
+        
+        /* Tables élégantes */
+        .dataframe {{
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }}
+        
+        .dataframe thead tr {{
+            background-color: {COLORS['bg_light']};
+            color: {COLORS['text_dark']};
+            font-weight: 600;
+        }}
+        
+        /* Code blocks professionnels */
+        .stCodeBlock {{
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+        }}
+        
+        /* Dividers subtils */
+        hr {{
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 1.5rem 0;
+        }}
+        
+        /* Chat messages */
+        .stChatMessage {{
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }}
+        
+        /* Radio buttons professionnels */
+        .stRadio > div {{
+            gap: 0.5rem;
+        }}
+        
+        .stRadio label {{
+            background-color: white;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }}
+        
+        .stRadio label:hover {{
+            border-color: {COLORS['secondary']};
+            background-color: {COLORS['bg_light']};
+        }}
+        
+        /* Selectbox élégant */
+        .stSelectbox {{
+            border-radius: 6px;
+        }}
+        
+        /* Spinner professionnel */
+        .stSpinner > div {{
+            border-top-color: {COLORS['secondary']} !important;
+        }}
+        </style>
+        """, unsafe_allow_html=True)
     
     def _init_components(self):
         """Initialise les composants pour Phi + RAG"""
@@ -812,53 +1010,85 @@ class OracleAIDashboardPhi:
     def setup_sidebar(self):
         """Barre latérale optimisée avec RAG"""
         with st.sidebar:
-            st.title("⚡ Oracle AI ")
+            # En-tête élégant
+            st.markdown(f"""
+            <div style='text-align: center; padding: 1rem 0;'>
+                <h1 style='color: {COLORS["primary"]}; margin: 0;'>
+                    ⚡ Oracle AI
+                </h1>
+                <p style='color: {COLORS["neutral"]}; font-size: 0.9rem; margin-top: 0.5rem;'>
+                    Intelligence Platform
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
             
+            st.markdown("---")
+            
+            # Menu de navigation
             menu = st.radio(
-                "Menu",
-                ["🏠 Accueil", "🔒 Sécurité", "⚡ Performance", "💾 Backup", "🤖 Chat", "📚 Base Connaissances"]
+                "Navigation",
+                ["🏠 Dashboard", "🔒 Sécurité", "⚡ Performance", "💾 Sauvegarde", "🤖 Chat", "📚 Base Connaissances"],
+                label_visibility="collapsed"
             )
             
-            st.divider()
+            st.markdown("---")
             
-            # Statut
-            st.subheader("Status")
-            col1, col2 = st.columns(2)
-            with col1:
-                icon = "🟢" if self.model_name == "phi:latest" else "🟡"
-                st.metric("AI", f"{icon} {self.model_name}")
-            with col2:
-                if self.llm_engine and hasattr(self.llm_engine, 'test_connection'):
-                    success, msg = self.llm_engine.test_connection()
-                    status = "✅ Connecté" if success else "❌ Erreur"
-                    st.metric("Connexion", status)
+            # Statut système
+            st.markdown("### 📊 Statut Système")
             
-            # Stats RAG 
-            st.divider()
-            st.subheader("📚 Base Connaissances")
+            # Badge de statut IA
+            ai_status = "🟢 Actif" if self.model_name == "phi:latest" else "🟡 Simulation"
+            ai_color = COLORS['success'] if self.model_name == "phi:latest" else COLORS['warning']
             
-            # Récupérer les stats depuis session_state
+            st.markdown(f"""
+            <div style='background-color: {COLORS["bg_light"]}; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;'>
+                <div style='display: flex; justify-content: space-between; align-items: center;'>
+                    <span style='font-weight: 500; color: {COLORS["neutral"]}'>Modèle IA</span>
+                    <span style='color: {ai_color}; font-weight: 600;'>{ai_status}</span>
+                </div>
+                <div style='font-size: 0.85rem; color: {COLORS["neutral"]}; margin-top: 0.5rem;'>
+                    {self.model_name}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Stats RAG
             rag_stats = st.session_state.get('rag_stats', {})
             rag_docs = rag_stats.get('total_documents', 0)
-            rag_cats = len(rag_stats.get('categories', {}))
             
-            st.metric("Documents", rag_docs)
-            st.metric("Catégories", rag_cats)
+            st.markdown(f"""
+            <div style='background-color: {COLORS["bg_light"]}; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;'>
+                <div style='display: flex; justify-content: space-between; align-items: center;'>
+                    <span style='font-weight: 500; color: {COLORS["neutral"]}'>Base Connaissances</span>
+                    <span style='color: {COLORS["primary"]}; font-weight: 600;'>{rag_docs} docs</span>
+                </div>
+                <div style='font-size: 0.85rem; color: {COLORS["neutral"]}; margin-top: 0.5rem;'>
+                    Documents Oracle techniques
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
             
-            # Afficher les catégories disponibles
-            if rag_stats.get('categories'):
-                st.caption("Catégories:")
-                cats = list(rag_stats['categories'].keys())
-                for cat in cats[:3]:  # Afficher seulement les 3 premières
-                    st.caption(f"• {cat}")
-                if len(cats) > 3:
-                    st.caption(f"• ... (+{len(cats)-3} autres)")
+            # Connexion
+            if self.llm_engine and hasattr(self.llm_engine, 'test_connection'):
+                success, msg = self.llm_engine.test_connection()
+                conn_status = "✅ Connecté" if success else "❌ Déconnecté"
+                conn_color = COLORS['success'] if success else COLORS['danger']
+                
+                st.markdown(f"""
+                <div style='background-color: {COLORS["bg_light"]}; padding: 1rem; border-radius: 8px;'>
+                    <div style='display: flex; justify-content: space-between; align-items: center;'>
+                        <span style='font-weight: 500; color: {COLORS["neutral"]}'>Connexion IA</span>
+                        <span style='color: {conn_color}; font-weight: 600;'>{conn_status}</span>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+            
+            st.markdown("---")
             
             # Actions
-            st.divider()
-            st.subheader("Actions")
+            st.markdown("### ⚙️ Actions")
             
-            if st.button("🔄 Rafraîchir IA", use_container_width=True):
+            if st.button("🔄 Actualiser IA", use_container_width=True):
                 # Nettoyer la session pour réinitialiser
                 keys_to_delete = ['phi_initialized', 'rag_integration', 'rag_stats']
                 for key in keys_to_delete:
@@ -869,50 +1099,127 @@ class OracleAIDashboardPhi:
             if st.button("🧪 Tester RAG", use_container_width=True):
                 st.session_state.test_rag = True
             
-            if st.button("📊 Logs debug", use_container_width=True):
+            if st.button("📊 Debug", use_container_width=True):
                 st.session_state.show_debug = True
+            
+            st.markdown("---")
+            
+            # Footer
+            st.markdown(f"""
+            <div style='text-align: center; padding: 1rem 0; color: {COLORS["neutral"]}; font-size: 0.8rem;'>
+                <p>Oracle AI Platform v2.0</p>
+                <p style='margin-top: 0.5rem;'>Powered by Phi AI + RAG</p>
+            </div>
+            """, unsafe_allow_html=True)
         
         # Convertir le menu
         menu_map = {
-            "🏠 Accueil": "home",
+            "🏠 Dashboard": "home",
             "🔒 Sécurité": "security", 
             "⚡ Performance": "performance",
-            "💾 Backup": "backup",
+            "💾 Sauvegarde": "backup",
             "🤖 Chat": "chat",
             "📚 Base Connaissances": "knowledge_base"
         }
         return menu_map.get(menu, "home")
     
     def home_page(self):
-        """Page d'accueil avec détails"""
-        st.title("⚡ Oracle AI Platform ")
-        st.caption(f"Powered by {self.model_name.upper()} - Réponses IA enrichies avec Base de Connaissances")
+        """Page d'accueil professionnelle"""
+        # En-tête avec design professionnel
+        st.markdown(f"""
+        <div style='background: linear-gradient(135deg, {COLORS["primary"]} 0%, {COLORS["secondary"]} 100%); 
+                    padding: 2rem; border-radius: 12px; margin-bottom: 2rem; color: white;'>
+            <h1 style='color: white; border: none; margin: 0; padding: 0;'>Oracle AI Platform</h1>
+            <p style='font-size: 1.1rem; margin-top: 0.5rem; opacity: 0.9;'>
+                Plateforme d'intelligence artificielle pour Oracle Database avec RAG
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
         
-        # Métriques
+        # Métriques principales
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            status = "🟢 Connecté" if self.model_name == "phi:latest" else "🟡 SIMULATION"
-            st.metric("Statut IA", status)
+            status = "ACTIF" if self.model_name == "phi:latest" else "SIMULATION"
+            st.metric("🤖 Statut IA", status)
         
         with col2:
-            st.metric("Requêtes", "12", "+2")
+            st.metric("📊 Requêtes", "12", "+2")
         
         with col3:
             rag_stats = st.session_state.get('rag_stats', {})
             rag_docs = rag_stats.get('total_documents', 0)
-            st.metric("Docs RAG", rag_docs)
+            st.metric("📚 Docs RAG", rag_docs)
         
         with col4:
-            st.metric("Réponse", "<2s", "⚡")
+            st.metric("⚡ Temps Réponse", "< 2s")
+        
+        st.markdown("---")
+        
+        # Capacités
+        st.markdown("### 🎯 Capacités de la Plateforme")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown(f"""
+            <div style='background-color: white; padding: 1.5rem; border-radius: 8px; 
+                        border: 1px solid #e2e8f0; height: 100%;'>
+                <h4 style='color: {COLORS["primary"]}; margin-top: 0;'>🔍 Audit & Sécurité</h4>
+                <p style='color: {COLORS["neutral"]}; line-height: 1.6;'>
+                    Analyse complète des configurations de sécurité Oracle avec identification 
+                    automatique des vulnérabilités et recommandations détaillées.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            st.markdown("<br>", unsafe_allow_html=True)
+            
+            st.markdown(f"""
+            <div style='background-color: white; padding: 1.5rem; border-radius: 8px; 
+                        border: 1px solid #e2e8f0; height: 100%;'>
+                <h4 style='color: {COLORS["primary"]}; margin-top: 0;'>💾 Stratégie Backup</h4>
+                <p style='color: {COLORS["neutral"]}; line-height: 1.6;'>
+                    Plans de sauvegarde RMAN personnalisés avec scripts exécutables 
+                    adaptés à vos objectifs RPO et RTO.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown(f"""
+            <div style='background-color: white; padding: 1.5rem; border-radius: 8px; 
+                        border: 1px solid #e2e8f0; height: 100%;'>
+                <h4 style='color: {COLORS["primary"]}; margin-top: 0;'>⚡ Optimisation SQL</h4>
+                <p style='color: {COLORS["neutral"]}; line-height: 1.6;'>
+                    Diagnostic approfondi des requêtes lentes avec analyse des plans d'exécution 
+                    et suggestions d'indexation optimale enrichies par RAG.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            st.markdown("<br>", unsafe_allow_html=True)
+            
+            st.markdown(f"""
+            <div style='background-color: white; padding: 1.5rem; border-radius: 8px; 
+                        border: 1px solid #e2e8f0; height: 100%;'>
+                <h4 style='color: {COLORS["primary"]}; margin-top: 0;'>📚 Base Connaissances</h4>
+                <p style='color: {COLORS["neutral"]}; line-height: 1.6;'>
+                    Base documentaire Oracle enrichie (RAG) avec 15 documents techniques 
+                    sur sécurité, performance, backup et dépannage.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
         
         # Test RAG détaillé
         if st.session_state.get('test_rag'):
+            st.markdown("---")
             self._test_rag_integration()
             st.session_state.test_rag = False
         
         # Test Phi détaillé
         if st.session_state.get('test_phi_detailed'):
+            st.markdown("---")
             self._test_phi_detailed()
             st.session_state.test_phi_detailed = False
         
@@ -951,22 +1258,6 @@ class OracleAIDashboardPhi:
             
             st.session_state.show_debug = False
         
-        # Section principale
-        st.subheader("🎯 Capacités de l'Assistant ")
-        
-        capabilities = {
-            "🔍 Audit Sécurité": "Analyse complète des configurations de sécurité Oracle avec recommandations détaillées",
-            "⚡ Optimisation SQL": "Diagnostic approfondi des requêtes lentes avec plans d'optimisation",
-            "💾 Stratégie Backup": "Plans de sauvegarde RMAN personnalisés avec scripts exécutables",
-            "📚 Base Connaissances": "Recherche dans la base documentaire Oracle (RAG)",
-            "📊 Monitoring": "Outils de surveillance des performances en temps réel",
-            "🛠️ Dépannage": "Solutions techniques pour les problèmes courants Oracle"
-        }
-        
-        for cap, desc in capabilities.items():
-            with st.expander(cap):
-                st.write(desc)
-    
     def _test_rag_integration(self):
         """Test l'intégration RAG"""
         st.subheader("🧪 Test RAG Integration")
