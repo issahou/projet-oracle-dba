@@ -90,6 +90,7 @@ Recommandations :
 ![Securite1](Images/securite1.png)
 
 ![Securite2](Images/securite2.png)
+
 ### 4.3. Détection d’Anomalies et Cybersécurité 
 
 **Fonctionnalités :**
@@ -179,6 +180,7 @@ Elle centralise :
 - Statistiques détaillées sur le contenu de la base
 
 ![Base1](Images/base1.png)
+
 ![Base2](Images/base2.png)
 
 ## 5. L'Interface : Le Dashboard et le Chatbot
@@ -192,6 +194,7 @@ Affiche en temps réel :
 - Page de la base de la base de connaissances : constitue le socle de connaissance technique utilisé par l’IA 
 
 ![Dashboard1](Images/dashboard1.jpeg)
+
 ![Dashboard2](Images/dashboard2.jpeg)
 
 ### 5.2. Le Chatbot (conversation naturelle)
@@ -207,7 +210,9 @@ Vous pouvez lui poser n'importe quelle question :
 ```
 
 ![Chatbot1](Images/chatbot1.png)
+
 ![Chatbot2](Images/chatbot2.png)
+
 **Voici une petite vue de la génération par l'IA sur la base :**
 
 ![Backend](Images/backend.jpeg)
