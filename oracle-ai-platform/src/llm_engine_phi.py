@@ -1,4 +1,4 @@
-# src/llm_engine_phi.py - VERSION COMPLÈTE OPTIMISÉE
+# src/llm_engine_phi.py - 
 import yaml
 import json
 import requests
