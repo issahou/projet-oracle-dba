@@ -1,4 +1,4 @@
-# src/rag_integration.py - Intégration RAG avec Dashboard et LLM
+# src/rag_integration.py -
 
 from rag_engine import OracleRAGEngine
 from llm_engine_phi import LLMEnginePhi

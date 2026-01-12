@@ -1,4 +1,4 @@
-# src/rag_engine.py - Configuration ChromaDB COMPLÈTE CORRIGÉE
+# src/rag_engine.py 
 import chromadb
 from chromadb.config import Settings
 from chromadb.utils import embedding_functions
