@@ -1,4 +1,4 @@
-# src/dashboard_phi.py - VERSION AVEC PAGE D'ACCUEIL PROFESSIONNELLE
+# src/dashboard_phi.py 
 import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
