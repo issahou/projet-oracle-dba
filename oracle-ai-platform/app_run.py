@@ -16,24 +16,12 @@ def main():
         
         dashboard = st.session_state.dashboard
         
-        # Configurer le menu
-        menu = dashboard.setup_sidebar()
-        
-        # Afficher la page correspondante
-        if menu == "home":
-            dashboard.home_page()
-        elif menu == "security":
-            dashboard.security_page()
-        elif menu == "performance":
-            dashboard.performance_page()
-        elif menu == "backup":
-            dashboard.backup_page()
-        elif menu == "chat":
-            dashboard.chatbot_page()
+        # Exécuter le dashboard
+        dashboard.run()
         
         # Footer
         st.sidebar.divider()
-        st.sidebar.caption("Oracle AI v2.1 • Powered by Phi • Fast & Lightweight")
+        st.sidebar.caption("Oracle AI v2.2 • Powered by Phi + RAG • Fast & Lightweight")
         
     except Exception as e:
         st.error(f"Error: {str(e)}")
