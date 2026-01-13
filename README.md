@@ -101,6 +101,11 @@ Résultat attendu :
 - réponses pertinentes du LLM
 
 #### Lancer l’Application :
+Pour lancer Ollama et pour lancer phi avec Ollama manuellement :
+```bash
+ollama serve
+ollama run phi
+```
 
 Démarrage du Dashboard
 ```bash
