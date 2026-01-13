@@ -221,4 +221,4 @@ Cette plateforme démontre comment l’IA peut :
 ### Encadré par :
  **Professeur Mohamed BEN AHMED**
  
-**Module Administration de la bases de données Oracle**
+**Module Administration de la base de données Oracle**
