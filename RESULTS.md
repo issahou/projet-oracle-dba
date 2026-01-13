@@ -306,4 +306,4 @@ Cette plateforme agit comme un expert Oracle disponible 24/7, capable de surveil
 ### Encadré par :
  **Professeur Mohamed BEN AHMED**
  
- Module Administration de la bases de données Oracle
+ **Module Administration de la base de données Oracle**
