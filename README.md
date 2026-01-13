@@ -104,7 +104,7 @@ Résultat attendu :
 
 Démarrage du Dashboard
 ```bash
-python src/dashboard_phi.py
+python src/app_run.py
 ```
 Par défaut :
 
